@@ -16,10 +16,13 @@ maintainer:          sheng@a64.work
 extra-source-files:  CHANGELOG.md
 
 executable sviewer
+  hs-source-dirs:      src
   main-is:             Main.hs
+  other-modules:       App
+                     , Presenter.GIGtk.Driver
   ghc-options:         -threaded
-  -- other-extensions:
   build-depends:       base ^>=4.13.0.0
+                     , mtl
                      , transformers
                      , text
                      , alsa-seq
@@ -31,5 +34,8 @@ executable sviewer
                      , cairo
                      , gi-cairo
                      , gi-poppler
-  -- hs-source-dirs:
   default-language:    Haskell2010
+  ghc-options:       -Wno-missing-signatures
+  packages:
+    .
+    gi-poppler
